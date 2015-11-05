@@ -24,10 +24,10 @@ def remove_hashtag_in_dict(remove_nodes_list,node_dict):
     for i,item in enumerate(remove_nodes_list):
         for remove_node in remove_nodes_list:
                 if(remove_nodes_list[i] != remove_node):
-                    print "key is "
-                    print remove_nodes_list[i]
-                    print "value is"
-                    print remove_node
+                    #print "key is "
+                    #print remove_nodes_list[i]
+                    #print "value is"
+                    #print remove_node
                     try:
                         node_dict[remove_nodes_list[i]].remove(remove_node)
                     except KeyError:
@@ -66,7 +66,7 @@ def graph_func(input_filename,temp_filename,output_filename):
     history_tweets = []
     f4 = open("hash_tags.txt")
     for line_no,line in enumerate(f4,1):
-        print line_no,line
+        #print line_no,line
         tag_time_list=line.split(" ")
         nodes_list = tag_time_list[0:-3]
         #print nodes_list
@@ -79,8 +79,8 @@ def graph_func(input_filename,temp_filename,output_filename):
             #function call
             add_hashtag_in_dict(nodes_list,node_dict)
             sum_degrees = sum(len(row) for row in node_dict.values())
-            avg_degree= "The rolling average degree is now %.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
-            print avg_degree
+            avg_degree= "The rolling average degree is now\n %.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
+            #print avg_degree
             f3.write(avg_degree)
 
         else:
@@ -102,7 +102,7 @@ def graph_func(input_filename,temp_filename,output_filename):
                 add_hashtag_in_dict(nodes_list, node_dict)
 
                 sum_degrees = sum(len(row) for row in node_dict.values())
-                avg_degree="The rolling average degree is now %.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
+                avg_degree="%.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
                 f3.write(avg_degree)
             else:
             #add the nodes to the dictionary, add to the history_tweets list and
@@ -110,7 +110,7 @@ def graph_func(input_filename,temp_filename,output_filename):
                 #function call
                 add_hashtag_in_dict(nodes_list,node_dict)
                 sum_degrees = sum(len(row) for row in node_dict.values())
-                avg_degree="The rolling average degree is now %.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
+                avg_degree="%.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
                 f3.write(avg_degree)
     f3.close()
 
