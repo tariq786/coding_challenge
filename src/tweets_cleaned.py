@@ -2,12 +2,16 @@
 
 from collections import Counter
 import re
+import sys
 
-counter_unicode =  Counter()
+counter_unicode =  0
 
-#def tweets_clean_func(filename):
-fw=open('../tweet_output/f1.txt','w')
-f=open("tweets.txt")
+input_filename=sys.argv[1]
+output_filename =  sys.argv[2]
+
+fw=open(output_filename,'w')
+f=open(input_filename)
+
 for i,line in enumerate(f,1):
     line_lst = line.split(',"',4)
     #print line_lst
@@ -21,7 +25,7 @@ for i,line in enumerate(f,1):
         #print text_val
         if "\u" in text_val:
             text_val = text_val.decode('unicode_escape').encode('ascii','ignore')
-            counter_unicode['unicode'] += 1
+            counter_unicode += 1
         if '\/' in text_val:
             text_val = text_val.replace("\/","/")
 
@@ -42,7 +46,7 @@ for i,line in enumerate(f,1):
         pass
 
 fw.write("\n")
-fw.write("%d tweets contained unicode." %(counter_unicode['unicode']))
+fw.write("%d tweets contained unicode." %(counter_unicode))
 fw.close()
 
 #    return time_stamp, text_val, counter_unicode
