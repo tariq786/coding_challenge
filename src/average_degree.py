@@ -79,7 +79,7 @@ def graph_func(input_filename,temp_filename,output_filename):
             #function call
             add_hashtag_in_dict(nodes_list,node_dict)
             sum_degrees = sum(len(row) for row in node_dict.values())
-            avg_degree= "The rolling average degree is now\n %.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
+            avg_degree= "The rolling average degree is now\n%.2f\n" %(float(sum_degrees)/float(len(node_dict.keys())))
             #print avg_degree
             f3.write(avg_degree)
 
