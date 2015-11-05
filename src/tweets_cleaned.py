@@ -1,6 +1,5 @@
 # example of program that calculates the number of tweets cleaned
 
-from collections import Counter
 import re
 import sys
 
