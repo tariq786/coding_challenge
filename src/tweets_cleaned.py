@@ -6,7 +6,7 @@ import re
 counter_unicode =  Counter()
 
 #def tweets_clean_func(filename):
-fw=open('out.txt','w')
+fw=open('../tweet_output/f1.txt','w')
 f=open("tweets.txt")
 for i,line in enumerate(f,1):
     line_lst = line.split(',"',4)
@@ -38,7 +38,8 @@ for i,line in enumerate(f,1):
             fw.write("\n")
 
     except IndexError:
-        print "Invalid Line detected on Line %i" %(i)
+        #print "Invalid Line detected on Line %i" %(i)
+        pass
 
 fw.write("\n")
 fw.write("%d tweets contained unicode." %(counter_unicode['unicode']))
